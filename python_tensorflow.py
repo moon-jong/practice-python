@@ -1,12 +1,15 @@
 import tensorflow as tf
-hello = tf.constant('Hello,Tensorflow')
+
+node1 = tf.constant(3.0,dtype = tf.float32)
+node2 = tf.constant(4.0)
+
+print(node1,node2)
 
 sess = tf.Session()
-print(sess.run(hello))
+print(sess.run([node1,node2]))
 
-a = tf.constant(10)
-b = tf.constant (10)
-
-print(sess.run(a+b))
+node3 = tf.add(node1,node2)
+print("node3:",node3)
+print("sess.rund(node3):",sess.run(node3))
 
 sess.close()
