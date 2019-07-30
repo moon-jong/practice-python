@@ -1,5 +1,6 @@
 import tensorflow as tf
 
+
 W = tf.Variable(tf.random_normal(shape=[1]), name='W')
 b = tf.Variable(tf.random_normal(shape=[1]), name='b')
 x = tf.placeholder(tf.float32, name= 'x')
