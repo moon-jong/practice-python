@@ -22,4 +22,5 @@ for i in range(1000):
 
 x_test = [3.5, 5, 5.5, 6]
 print(sess.run(linear_model, feed_dict={x: x_test}))
+print(sess.run(W))
 sess.close()
