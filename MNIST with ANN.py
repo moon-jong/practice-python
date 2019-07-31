@@ -31,7 +31,8 @@ def build_ANN(x):
 predicted_value = build_ANN(x)
 
 loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=predicted_value,labels= y))
-train_step = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
+train_step = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss)
+
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
