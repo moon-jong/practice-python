@@ -50,5 +50,3 @@ with tf.Session() as sess:
     correct_prediction = tf.equal(tf.argmax(predicted_value,1),tf.argmax(y,1))
     acc = tf.reduce_mean(tf.cast(correct_prediction,"float"))
     print("정확도:%f"%(acc.eval(feed_dict={x:mnist.test.images,y: mnist.test.labels})))
-
-
