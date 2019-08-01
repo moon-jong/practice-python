@@ -69,7 +69,7 @@ with tf.Session() as sess:
              _, pretraing_loss_print = sess.run([pretraing_train_step, pretraing_loss], feed_dict={x: batch_xs})
          if epoch % display_step == 0:
              print('반복: %d, Pretraing 손실함수(pretraing_loss): %f' % ((epoch+1),pretraing_loss_print))
-    print("Step1 : Mnist 데이터 재구축을 위한 오토인코더 최적화 완료(Pre_Training")
+    print("Step1 : Mnist 데이터 재구축을 위한 오토인코더 최적화 완료(Pre_Training)")
 
     for epoch in range(num_epochs + 100):
 
@@ -85,4 +85,4 @@ with tf.Session() as sess:
     corret_prediction= tf.equal(tf.argmax(y,1),tf.argmax(y_pred_softmax,1))
     accuracy = tf.reduce_mean(tf.cast(corret_prediction, tf.float32))
 
-    print("정확도(오토인코더 + Softmax 분류기:%f" % sess.run(accuracy, feed_dict={x: mnist.test.images, y: mnist.test.labels}))
+    print("정확도(오토인코더 + Softmax 분류기):%f" % sess.run(accuracy, feed_dict={x: mnist.test.images, y: mnist.test.labels}))
