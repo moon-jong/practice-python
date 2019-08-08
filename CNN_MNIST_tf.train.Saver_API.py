@@ -49,7 +49,11 @@ ckpt = tf.train.get_checkpoint_state(SAVER_DIR)
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-
+    if ckpt and ckpt.model_checkpoint_path:
+        saver.restore(sess, ckpt.model_checkpoint_path)
+        print('테스트 데이터 정확도 (Restored):%f' % accuracy.eval(feed_dict={x: mnist.test.images, y: mnist.test.labels}))
+        sess.close()
+        exit()
     for step in range(1000):
         batch = mnist.train.next_batch(50)
 
@@ -59,3 +63,5 @@ with tf.Session() as sess:
             print("반복(Epoch):%d, 트레이닝 데이터 정확도:%f"%(step,train_accuracy))
         sess.run([train_step],feed_dict={x: batch[0],y:batch[1]})
     print("테스트 데이터 정확도:%f" % accuracy.eval(feed_dict= {x: mnist.test.images, y: mnist.test.labels}))
+
+
