@@ -31,6 +31,7 @@ def build_CNN_classifier(x):
 
     return  y_pred, logits
 
+
 x = tf.placeholder(tf.float32, shape=[None,784])
 y = tf.placeholder(tf.float32, shape=[None,10])
 
@@ -65,3 +66,4 @@ with tf.Session() as sess:
     print("테스트 데이터 정확도:%f" % accuracy.eval(feed_dict= {x: mnist.test.images, y: mnist.test.labels}))
 
 
+build_CNN_classifier()
