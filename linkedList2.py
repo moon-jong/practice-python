@@ -18,6 +18,10 @@ class LinkedList:
         self.tail.nextNode = newNode
         self.tail = newNode
 
+    def insert(self, preNode, newNode):
+        self.prenode =
+
+
 
 node1 = Node(100)
 node2 = Node(200)
@@ -31,4 +35,5 @@ linkedList.append(node3)
 linkedList.append(node4)
 
 linkedList.iteration()
+
 

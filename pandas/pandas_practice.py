@@ -145,3 +145,39 @@ df_left.merge(df_right,how='right')#오른쪽 데이터 모두 선택, 왼쪽의
 df_left.merge(df_right,how='inner')#선택된 데이터중 공통 항목만 선택
 df_left.merge(df_right,how='outer')#모든 데이터 선택 빈곳은 결측치로 채워짐
 
+######파일 쓰기
+f = open('sea_data.csv','w')
+f.write('연도,동해,남해,서해,전체\n')
+f.write('1996,17.4629,17.2288,14.436,15.9067\n')
+f.write('1997,17.4116,17.4092,14.8248,16.6044\n')
+f.write('1998,17.5944,18.011,15.2512,16.6044\n')
+f.write('1999,18.1495,18.3175,14.8979,16.6284\n')
+f.write('2000,17.9288,18.1766,15.0504,16.6178\n')
+f.close()
+
+pd.read_csv('sea_data.csv')
+
+pd.read_csv('sea_data.csv',index_col='연도')#index열이 연도로 변경됨
+
+#표형식의 데이터를 파일로 쓰기
+df_WH = pd.DataFrame({'Weight':[62, 67, 55, 74],
+                      'Height':[165, 177, 160, 180]},
+                      index = ['ID_1', 'ID_2', 'ID_3', 'ID_4'])
+df_WH.index.name = 'User'
+df_WH
+bmi = df_WH['Weight']/(df_WH['Height']/100)**2
+bmi
+#dataFrame에 추가
+df_WH['BMI'] =bmi
+df_WH
+
+df_WH.to_csv('save_DataFrame.csv')#csv파일 workingdirectory에 저장
+
+#저장시 옵션지정
+df_pr = pd.DataFrame({'판매가격': [2000, 3000, 5000, 10000],
+                      '판매량': [32, 53, 40, 25]},
+                     index=['P1001', 'P1002', 'P1003', 'P1004'])
+df_pr.index.name = '제품번호'
+df_pr
+#txt파일로 저장 및 인코딩 형식, 데이터 필드 변경
+df_pr.to_csv('save_Data2.txt', sep=" ", encoding='cp949')
