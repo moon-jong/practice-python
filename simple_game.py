@@ -1,20 +1,20 @@
 class Person:
     healthPoint = 100
 
-    def attack(self):
-      monster = Monster()
-      monsterHealthPoint = monster.healthPoint - 10
+    def attack(self, monster2):
+        print("before attack %d" % monster2.healthPoint)
+        monster2.healthPoint -= 10
+        monsterHealthPoint = monster2.healthPoint
 
-        if monsterHealthPoint <= 0:
-            print('the Monster is Dead')
+        if monster2.healthPoint <= 0:
+            print('monster is dead')
         else:
-            print('%d' %(monsterHealthPoint))
-
-
+            print('%d' %(monster2.healthPoint))
 
 
 class Monster:
     healthPoint = 100
+
     def attack(self):
         personHealthPont = Person().personHealthPoint - 10
 
@@ -23,20 +23,27 @@ class Monster:
         else:
             print('%d' %(personHealthPont))
 
-person = Person()
 
 
-person.attack()
-person.attack()
-Person().attack()
-person.attack()
+class Annie:
+    def __init__(self, health, mana, ability_power):
+        self.health = health
+        self.mana = mana
+        self.ability_power = ability_power
+    def tibbers(self):
+        point = self.ability_power*0.65 + 400
+        print("티버: 피해량 %f" %(point))
 
 
-
-
+annie = Annie(100,100,50)
+annie.tibbers()
 class Car:
     carSize = 100
 car = Car()
 car.carSize -= 10
 
 car.carSize
+
+person = Person()
+monster = Monster()
+person.attack(monster)

@@ -33,3 +33,11 @@ plt.plot(x, y1)
 plt.figure(2)
 plt.plot(x, y2)
 plt.show()
+
+
+import math as mt
+
+x = 2*np.arange(4.5, 8, 0.1)
+plt.semilogy(x)
+plt.show()
+
