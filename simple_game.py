@@ -47,3 +47,11 @@ car.carSize
 person = Person()
 monster = Monster()
 person.attack(monster)
+
+
+
+def f(N):
+    print(N)
+    if N >0:
+        f(N-1)
+f(5)
