@@ -1,27 +1,27 @@
 class Person:
     healthPoint = 100
 
-    def attack(self, monster2):
-        print("before attack %d" % monster2.healthPoint)
-        monster2.healthPoint -= 10
-        monsterHealthPoint = monster2.healthPoint
+    def attack(self, monster):
+        print("before attack %d" % monster.healthPoint)
+        monster.healthPoint -= 10
 
-        if monster2.healthPoint <= 0:
+        if monster.healthPoint <= 0:
             print('monster is dead')
         else:
-            print('%d' %(monster2.healthPoint))
+            print('%d' %(monster.healthPoint))
 
 
 class Monster:
     healthPoint = 100
 
-    def attack(self):
-        personHealthPont = Person().personHealthPoint - 10
+    def attack(self, person):
+        print('before attack %d' %(person.healthPoint))
+        person.healthPoint -= 10
 
-        if personHealthPont <= 0:
+        if person.healthPoint <= 0:
             print('the Person is Dead')
         else:
-            print('%d' %(personHealthPont))
+            print('%d' %(person.healthPoint))
 
 
 
@@ -37,21 +37,9 @@ class Annie:
 
 annie = Annie(100,100,50)
 annie.tibbers()
-class Car:
-    carSize = 100
-car = Car()
-car.carSize -= 10
 
-car.carSize
 
 person = Person()
 monster = Monster()
 person.attack(monster)
-
-
-
-def f(N):
-    print(N)
-    if N >0:
-        f(N-1)
-f(5)
+monster.attack(person)
