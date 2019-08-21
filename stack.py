@@ -36,6 +36,4 @@ stack.push(8)
 stack.pushedList[2]
 stack.printStack()
 
-for i in range(3):
-    print(i)
 
