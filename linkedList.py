@@ -21,7 +21,6 @@ class LinkedList:
             if current.nextNode == None:
                     break
             current = current.nextNode
-    def
 
 linkedList = LinkedList(node1,node4)
 
