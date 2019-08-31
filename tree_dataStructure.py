@@ -25,16 +25,35 @@ class BinaryTree:
         if root is None or root.data == key:
             return root is not None
         elif key < root.data:
-            return self._find_value(root.left, key)
+            return self._find_value( root.left, key)
         else:
             return self._find_value(root.right, key)
     def find(self, key):
         return self._find_value(self.root, key)
 
+    def _delete_node(self, node, key):
+        if node is None:
+            return node, False
+        deleted = False
 
-bin = BinaryTree()
-x = [12, 34, 45, 56 , 2, 3, 4, 76, 9]
-for i in x:
-    bin.insert(i)
+        if node.data == key:
+            deleted = True
+            if node.left and node.right:
+                parent, child = node, node.right
+                while child.left is not None:
+                    parent, child = child, child.left
+                child.left = node.left
 
-bin.find(45)
+                if parent != node:
+                    parent.left = child.right
+                    child.right = node.right
+                node = child
+            elif node.left or node.right:
+                node = node.left or node.right
+            else:
+                node = None
+        elif key < node.data:
+            node.left, deleted = self._delete_node(node.left, key)
+        else:
+            node.right, deleted = self._delete_node(node.right, key)
+        return node, deleted
