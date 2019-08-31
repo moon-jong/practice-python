@@ -86,3 +86,5 @@ with tf.Session() as sess:
     accuracy = tf.reduce_mean(tf.cast(corret_prediction, tf.float32))
 
     print("정확도(오토인코더 + Softmax 분류기):%f" % sess.run(accuracy, feed_dict={x: mnist.test.images, y: mnist.test.labels}))
+
+
