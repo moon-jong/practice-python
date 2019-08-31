@@ -57,3 +57,7 @@ class BinaryTree:
         else:
             node.right, deleted = self._delete_node(node.right, key)
         return node, deleted
+
+    def delete(self, key):
+        self.root, deleted =  self._delete_node(self.root, key)
+        return deleted
