@@ -1,7 +1,7 @@
 class Node:
-    def __init__(self,data):
+    def __init__(self, data):
         self.data = data
-        self.left = self.right =None
+        self.left = self.right = None
 
 class BinaryTree:
     def __init__(self):
@@ -17,7 +17,7 @@ class BinaryTree:
                 node.right = self._insert_node(node.right, data)
         return node
 
-    def insert(self,data):
+    def insert(self, data):
         self.root = self._insert_node(self.root, data)
         return self.root is not None
 
@@ -25,7 +25,7 @@ class BinaryTree:
         if root is None or root.data == key:
             return root is not None
         elif key < root.data:
-            return self._find_value( root.left, key)
+            return self._find_value(root.left, key)
         else:
             return self._find_value(root.right, key)
     def find(self, key):
@@ -59,5 +59,5 @@ class BinaryTree:
         return node, deleted
 
     def delete(self, key):
-        self.root, deleted =  self._delete_node(self.root, key)
+        self.root, deleted = self._delete_node(self.root, key)
         return deleted
