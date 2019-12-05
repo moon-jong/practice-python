@@ -7,7 +7,7 @@ class LinkedList:
 
     def __init__(self, head):
         self.head = head
-        self.tail = head
+        self.tail = headp
     def iteration(self):
         current = self.head
         while True:
